@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale-1.0">
+	<title>Virtual-Whiteboard</title>
+
+	<!-- Font awesome CDN -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+<body>
+
+	<div class="container">
+		<!-- Tools Section -->
+			<div class="tools-bar">
+				<button class="open-tools" title="Tools">
+					<img src="./assets/images/menu.png" class="open">
+					<img src="./assets/images/exit.png" class="close">
+				</button>
+
+				<div class="tools">
+					<button class="tool-btn pen" id="pen" title="pen">
+						<span><img src="./assets/images/pen.png"></span>
+						<i class="fa fa-angle-up"></i>
+					</button>
+					<div id="pen-dropdown" class="dropdown">
+						<div class="dropdown-items">
+							<input type="range" id="pen-width" min="1" max="100" step="1" value="3">
+							<span id="pen-width-value" style="display: none;">3</span>
+						</div>
+						<div class="dropdown-items">
+							<button class="color-swatch selected-color" style="background: #000000;"
+								data-color="#000000"></button>
+							<button class="color-swatch" style="background: #FF0000;" data-color="#FF0000"></button>
+							<button class="color-swatch" style="background: #00FF00;" data-color="#00FF00"></button>
+							<button class="color-swatch" style="background: #0000FF;" data-color="#0000FF"></button>
+							<button class="color-swatch" style="background: #FFFFFF;" data-color="#FFFFFF"></button>
+							<button class="color-swatch" style="background: #FFF000;" data-color="#FFF000"></button>
+							<button class="color-swatch" style="background: #00FFFF;" data-color="#00FFFF"></button>
+						</div>
+
+						<div class="dropdown-items-btn">
+							<button class="other-tools" id="pen"><i class="fa-solid fa-pencil"></i>pen</button>
+							<button class="other-tools" id="pointer"><i class="fa-solid fa-pointer"></i>pointer</button>
+							<button class="other-tools" id="highlighter"><i class="fa-solid fa-highlighter"></i>highlighter</button>
+							<button class="other-tools" id="eraser"><i class="fa-solid fa-eraser"></i>Eraser</button>
+							<button class="other-tools" id="trash"><i class="fa-solid fa-trash"></i>Erase All</button>
+						</div>
+					</div>
+					
+					<!-- <button class="tool-btn eraser" id="eraser" title="Eraser">
+						<span><img src="./assets/images/eraser.jpg"></span>
+					</button> -->
+
+					<!-- <button class="tool-btn erase_all" id="erase_all" title="Erase All">
+						<span><img src="./assets/images/eraser_all.png"></span>
+					</button> -->
+
+					<button class="tool-btn screen_share" id="screen_share">
+						<span><img src="./assets/images/screen share.png"></span>
+					</button>
+
+					<button class="tool-btn live-chat" id="live-chat" title="Live Chat">
+						<span><img src="./assets/images/messages.png"></span>
+					</button>
+
+					<button class="tool-btn undo" id="undo" title="Undo">
+						<span><img src="./assets/images/undo.png"></span>
+					</button>
+
+					<button class="dual-tool-btn" id="camera-toggle" title="Camera">
+						<img src="./assets/images/camera.png" class="camera-on">
+						<img src="./assets/images/camera-off.png" class="camera-off">
+					</button>
+
+					<button class="dual-tool-btn" id="mic-toggle">
+						<img src="./assets/images/mute.png" class="mic-on" title="Mute">
+						<img src="./assets/images/unmute.png" class="mic-off" title="Unmute">
+					</button>
+
+					<button class="dual-tool-btn" id="screen-toggle">
+						<img src="./assets/images/fullscreen.png" class="screen-max" title="Full screen">
+						<img src="./assets/images/shortscreen.png" class="screen-min" title="Exit full screen">
+					</button>
+				</div>
+			</div>
+		<!-- Main content -->
+			<div class="main-area">
+				<!-- Content Section -->
+					<div class="content-section" id="content-area">
+						<canvas id="whiteboard"></canvas>
+					</div>
+					
+					<div class="chat-section">
+						<div class="chat-box-btn">
+							<button class="chat-btn" title="Mute Chat">
+								<img src="./assets/images/mute-chat.png">
+							</button>
+						</div>
+
+						<div id="student-message"></div>
+						<div class="send-msg-box">
+							<textarea placeholder="Text your message..." id="tutor-message"></textarea>
+							<button class="chat-btn" title="Send message">
+								<img src="./assets/images/send.png">
+							</button>
+						</div>
+					</div> 
+			</div>
+
+			<div class="camera-control" id="camera-control">
+				<div class="webcam-icon" id="webcam">
+					<video id="webcam-video" autoplay muted></video>
+				</div>
+			</div>
+	</div>
+		
+	<script src="./assets/js/script.js"></script>
+	<script src="./assets/js/functions.js"></script>
+</body>
+</html>
